@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  eligibility: MyText
+  deadline: 2019-01-20
+  location: MyString
+  duration: MyString
+  stipend: 1
+  start: 2019-01-20
+  end: 2019-01-20
+  company: one
+
+two:
+  title: MyString
+  description: MyText
+  eligibility: MyText
+  deadline: 2019-01-20
+  location: MyString
+  duration: MyString
+  stipend: 1
+  start: 2019-01-20
+  end: 2019-01-20
+  company: two

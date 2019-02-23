@@ -1,0 +1,17 @@
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= simple_format @company.description %>
+</p>
+<%= link_to 'See the internships', company_internships_path(@company) %>
+<br>
+<%= link_to 'Post an Internship', new_company_internship_path(@company) %>
+<br>
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

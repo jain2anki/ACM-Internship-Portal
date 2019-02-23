@@ -1,0 +1,46 @@
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @internship.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= simple_format @internship.description %>
+</p>
+
+<p>
+  <strong>Eligibility:</strong>
+  <%= simple_format @internship.eligibility %>
+</p>
+
+<p>
+  <strong>Apply By:</strong>
+  <%= @internship.deadline %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @internship.location %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @internship.duration %>
+</p>
+
+<p>
+  <strong>Stipend (INR per month):</strong>
+  <%= @internship.stipend %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @internship.start %>
+</p>
+
+
+<%= link_to 'Edit', edit_company_internship_path(@company, @internship) %> |
+<%= link_to 'Back', company_internships_path %> |
+<%= link_to 'Destroy', [@company, @internship], method: :delete, data: { confirm: 'Are you sure?' } %>

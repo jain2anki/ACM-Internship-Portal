@@ -1,0 +1,46 @@
+<%= form_for([@company, @internship]) do |form|%>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eligibility %>
+    <%= form.text_area :eligibility %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deadline %>
+    <%= form.date_select :deadline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.text_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stipend %>
+    <%= form.number_field :stipend %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.date_select :start %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
