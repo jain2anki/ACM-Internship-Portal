@@ -40,7 +40,11 @@
   <%= @internship.start %>
 </p>
 
-
-<%= link_to 'Edit', edit_company_internship_path(@company, @internship) %> |
-<%= link_to 'Back', company_internships_path %> |
-<%= link_to 'Destroy', [@company, @internship], method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if can? :create, Application %>
+  <%= link_to 'Apply for Internship', new_internship_application_path(@internship) %>
+<% end %>
+<br>
+<% if can? :manage, Internship %>
+  <%= link_to 'Edit', edit_internship_path(@internship) %> |
+  <%= link_to 'Destroy', @internship, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  answer: MyText
+  status: MyString
+  time_of_creation: 2019-02-23 17:28:59
+
+two:
+  answer: MyText
+  status: MyString
+  time_of_creation: 2019-02-23 17:28:59

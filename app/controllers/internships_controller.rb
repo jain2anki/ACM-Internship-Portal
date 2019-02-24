@@ -1,6 +1,7 @@
 class InternshipsController < ApplicationController
-  before_action :set_company
+  before_action :set_company, except: [:show]
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /internships
   # GET /internships.json
@@ -55,7 +56,6 @@ class InternshipsController < ApplicationController
   # DELETE /internships/1
   # DELETE /internships/1.json
   def destroy
-    @internship = @company.internships.find(params[:id])
     @internship.destroy
     respond_to do |format|
       format.html { redirect_to @company, notice: 'Internship was successfully destroyed.' }
@@ -75,6 +75,6 @@ class InternshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def internship_params
-      params.require(:internship).permit(:title, :description, :eligibility, :deadline, :location, :duration, :stipend, :start, :end)
+      params.require(:internship).permit(:id, :title, :description, :eligibility, :deadline, :location, :duration, :stipend, :start)
     end
 end
