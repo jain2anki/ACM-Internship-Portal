@@ -1,46 +1,46 @@
-<%= form_for([@company, @internship]) do |form|%>
+<%= form_for([@company, @internship]) do |form| %>
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :eligibility %>
-    <%= form.text_area :eligibility %>
+    <%= form.text_area :eligibility, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :deadline %>
-    <%= form.date_select :deadline %>
+    <%= form.date_select :deadline , class: "form-control"%>
   </div>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :duration %>
-    <%= form.text_field :duration %>
+    <%= form.text_field :duration, class: "form-control"%>
   </div>
 
   <div class="field">
     <%= form.label :stipend %>
-    <%= form.number_field :stipend %>
+    <%= form.number_field :stipend, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :start %>
-    <%= form.date_select :start %>
+    <%= form.date_select :start, class: "form-control" %>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary btn-sm"  %>
   </div>
 <% end %>

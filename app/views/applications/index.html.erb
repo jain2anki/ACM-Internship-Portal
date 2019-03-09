@@ -1,31 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1>My Applications</h1>
 
-<h1>Applications</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Answer</th>
-      <th>Status</th>
-      <th>Time of creation</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @applications.each do |application| %>
-      <tr>
-        <td><%= application.answer %></td>
-        <td><%= application.status %></td>
-        <td><%= application.time_of_creation %></td>
-        <td><%= link_to 'Show', application %></td>
-        <td><%= link_to 'Edit', edit_application_path(application) %></td>
-        <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% current_user.applications.each do |application| %>
+    <div class="card">
+      <div class="card-header">
+        <%=time_ago_in_words(application.created_at)%> ago
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= Internship.find(application.internship_id).title%></h5>
+        <p class="card-text"><%= application.answer %></p>
+        <p class="card-text"><%= application.status %></p>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <%= link_to 'Show', application, class: "btn btn-outline-dark btn-sm" %>
+          <%= link_to 'Edit', edit_application_path(application), class: "btn btn-outline-dark btn-sm" %>
+          <%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-dark btn-sm" %>
+        </div>
+      </div>
+    </div>
+  <br>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Application', new_application_path %>

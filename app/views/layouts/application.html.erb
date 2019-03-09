@@ -5,22 +5,43 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <div id="loginmenu">
-    <% if user_signed_in? %>
-        <%= current_user.email %><br>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-    <% else %>
-        <%= link_to('Login', new_user_session_path)  %>
-    <% end %>
-  </div>
+  <% if user_signed_in? %>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <%= link_to "Internships", internships_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Companies", companies_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "My Applications", applications_path, class: "nav-link" %>
+    </li>
+      <li class="nav-item">
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+      </li >
+    <li  class="nav-item">
+      <strong class="nav-link active"> Logged In as: <%= current_user.email%></strong>
+    </li>
+  </ul>
+  <%end %>
+
+
   <% flash.each do |key, value| %>
     <p id='<%= key %>'><%= value %></p>
   <% end %>
+  <br>
     <%= yield %>
+
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
   </body>
 </html>

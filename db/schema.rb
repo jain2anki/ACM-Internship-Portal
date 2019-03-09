@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_23_173528) do
+ActiveRecord::Schema.define(version: 2019_03_09_043644) do
 
   create_table "applications", force: :cascade do |t|
     t.text "answer"
     t.string "status"
-    t.datetime "time_of_creation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "internship_id"

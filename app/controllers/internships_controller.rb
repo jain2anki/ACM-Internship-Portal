@@ -1,12 +1,12 @@
 class InternshipsController < ApplicationController
-  before_action :set_company, except: [:show]
+  before_action :set_company, only: [:new, :create]
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
 
   # GET /internships
   # GET /internships.json
   def index
-    @internships = @company.internships
+    @internships = Internship.all
   end
 
   # GET /internships/1
@@ -44,7 +44,7 @@ class InternshipsController < ApplicationController
   def update
     respond_to do |format|
       if @internship.update(internship_params)
-        format.html { redirect_to company_internships_path, notice: 'Internship was successfully updated.' }
+        format.html { redirect_to internships_path, notice: 'Internship was successfully updated.' }
         format.json { render :show, status: :ok, location: @internship }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class InternshipsController < ApplicationController
   def destroy
     @internship.destroy
     respond_to do |format|
-      format.html { redirect_to @company, notice: 'Internship was successfully destroyed.' }
+      format.html { redirect_to internships_path, notice: 'Internship was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

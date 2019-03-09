@@ -11,9 +11,9 @@
 </p>
 
 <p>
-  <strong>Time of creation:</strong>
-  <%= @application.time_of_creation %>
+  <strong>Why do you want to apply for this internship?</strong>
+  <%= @application.answer %>
 </p>
 
-<%= link_to 'Edit', edit_application_path(@application) %> |
-<%= link_to 'Back', applications_path %>
+<%= link_to 'Edit', edit_application_path(@application), class: "btn btn-outline-secondary btn-sm" %> |
+<%= link_to 'Back', applications_path, class: "btn btn-outline-secondary btn-sm" %>

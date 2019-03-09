@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
-  before_action :set_internship
+  before_action :set_internship, only: [:new, :create]
   before_action :authenticate_user!
 
   # GET /applications
@@ -28,7 +28,6 @@ class ApplicationsController < ApplicationController
   def create
     @application = @internship.applications.new(application_params)
     @application.user_id =current_user.id
-    @application.time_of_creation=Time.now
 
     respond_to do |format|
       if @application.save
@@ -58,7 +57,6 @@ class ApplicationsController < ApplicationController
   # DELETE /applications/1
   # DELETE /applications/1.json
   def destroy
-    @application = @internship.applications.find(params[:id])
     @application.destroy
     respond_to do |format|
       format.html { redirect_to applications_url, notice: 'Application was successfully destroyed.' }
@@ -77,6 +75,6 @@ class ApplicationsController < ApplicationController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def application_params
-      params.require(:application).permit(:answer, :status, :time_of_creation)
+      params.require(:application).permit(:answer, :status)
     end
 end

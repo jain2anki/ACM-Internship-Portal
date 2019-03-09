@@ -39,12 +39,11 @@
   <strong>Start:</strong>
   <%= @internship.start %>
 </p>
-
 <% if can? :create, Application %>
-  <%= link_to 'Apply for Internship', new_internship_application_path(@internship) %>
+  <%= link_to 'Apply for Internship', new_internship_application_path(@internship), class: "btn btn-outline-secondary btn-sm" %>
 <% end %>
 <br>
 <% if can? :manage, Internship %>
-  <%= link_to 'Edit', edit_internship_path(@internship) %> |
-  <%= link_to 'Destroy', @internship, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_internship_path(@internship), class: "btn btn-outline-secondary btn-sm" %> |
+  <%= link_to 'Destroy', @internship, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %>
 <% end %>
